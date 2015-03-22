@@ -12,4 +12,7 @@
 
 @interface ChildViewController : UIViewController
 
+@property (nonatomic,assign) int tabNum;
+@property (nonatomic,assign) int lineNum;
+
 @end

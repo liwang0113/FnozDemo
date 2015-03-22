@@ -8,6 +8,8 @@
 
 #import "ChildViewController.h"
 
+#define    BLUE        [UIColor colorWithRed:38.0f/255.0f green:145.0/255.0f blue:244.0f/255.0f alpha:1.0f]
+
 @interface ChildViewController ()
 
 @end
@@ -16,22 +18,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor blueColor]];
+    [self.view setBackgroundColor:BLUE];
+    UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(50.0f, 250.0f, 220.0f, 50.0f)];
+    [textLabel setText:[NSString stringWithFormat:@"This is %d.%d",self.tabNum,self.lineNum]];
+    [textLabel setTextAlignment:NSTextAlignmentCenter];
+    [textLabel setTextColor:[UIColor whiteColor]];
+    [textLabel setFont:[UIFont systemFontOfSize:20.0f]];
+    [self.view addSubview:textLabel];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
