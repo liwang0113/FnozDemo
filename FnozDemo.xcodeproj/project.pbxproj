@@ -16,7 +16,6 @@
 		10E2BC751ABF0F4E00EFFDAC /* ChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2BC6E1ABF0F4E00EFFDAC /* ChildViewController.m */; };
 		10E2BC761ABF0F4E00EFFDAC /* FnozNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2BC711ABF0F4E00EFFDAC /* FnozNaviViewController.m */; };
 		10E2BC771ABF0F4E00EFFDAC /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2BC741ABF0F4E00EFFDAC /* MainViewController.m */; };
-		10E2BC7F1ABF26F500EFFDAC /* FnozRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2BC7E1ABF26F500EFFDAC /* FnozRefreshTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +46,6 @@
 		10E2BC711ABF0F4E00EFFDAC /* FnozNaviViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FnozNaviViewController.m; sourceTree = "<group>"; };
 		10E2BC731ABF0F4E00EFFDAC /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		10E2BC741ABF0F4E00EFFDAC /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		10E2BC7D1ABF26F500EFFDAC /* FnozRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FnozRefreshTableViewController.h; sourceTree = "<group>"; };
-		10E2BC7E1ABF26F500EFFDAC /* FnozRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FnozRefreshTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				10E2BC6B1ABF0EE800EFFDAC /* AppDelegate */,
-				10E2BC7C1ABF26AA00EFFDAC /* FnozRefreshTableViewController */,
 				10E2BC6F1ABF0F4E00EFFDAC /* FnozNaviViewController */,
 				10E2BC721ABF0F4E00EFFDAC /* MainViewController */,
 				10E2BC6C1ABF0F4E00EFFDAC /* ChildViewController */,
@@ -163,16 +159,6 @@
 				10E2BC741ABF0F4E00EFFDAC /* MainViewController.m */,
 			);
 			path = MainViewController;
-			sourceTree = "<group>";
-		};
-		10E2BC7C1ABF26AA00EFFDAC /* FnozRefreshTableViewController */ = {
-			isa = PBXGroup;
-			children = (
-				10E2BC7D1ABF26F500EFFDAC /* FnozRefreshTableViewController.h */,
-				10E2BC7E1ABF26F500EFFDAC /* FnozRefreshTableViewController.m */,
-			);
-			name = FnozRefreshTableViewController;
-			path = FnozFreshTableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,7 +263,6 @@
 			files = (
 				10E2BC4B1ABF0E7E00EFFDAC /* AppDelegate.m in Sources */,
 				10E2BC761ABF0F4E00EFFDAC /* FnozNaviViewController.m in Sources */,
-				10E2BC7F1ABF26F500EFFDAC /* FnozRefreshTableViewController.m in Sources */,
 				10E2BC481ABF0E7E00EFFDAC /* main.m in Sources */,
 				10E2BC771ABF0F4E00EFFDAC /* MainViewController.m in Sources */,
 				10E2BC751ABF0F4E00EFFDAC /* ChildViewController.m in Sources */,
