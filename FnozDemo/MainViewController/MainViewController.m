@@ -8,6 +8,8 @@
 
 #import "MainViewController.h"
 #import "ChildViewController.h"
+#import "ChineseString.h"
+#import "Pinyin.h"
 
 #define    numOfPage    4
 #define    BLUE        [UIColor colorWithRed:38.0f/255.0f green:145.0/255.0f blue:244.0f/255.0f alpha:1.0f]
@@ -108,7 +110,12 @@
         [_scrollView addSubview:tableView];
     }
     
-    
+    UIButton *chineseSortBtn = [[UIButton alloc] initWithFrame:CGRectMake(10.0f, self.view.frame.size.height-80.0f, self.view.frame.size.width-20.0f, 50.0f)];
+    [chineseSortBtn setBackgroundColor:BLUE];
+    [chineseSortBtn.layer setCornerRadius:5.0f];
+    [chineseSortBtn addTarget:self action:@selector(demoForChineseSortByPinyin) forControlEvents:UIControlEventTouchUpInside];
+    [chineseSortBtn setTitle:@"中文排序 点击后查看Xcode调试信息" forState:UIControlStateNormal];
+    [self.view addSubview:chineseSortBtn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -143,6 +150,76 @@
         _scrollView.contentOffset = contentOffset;
     } completion:^(BOOL finished) {
     }];
+}
+
+- (void)demoForChineseSortByPinyin
+{
+    NSMutableArray *stringsToSort=[NSMutableArray arrayWithObjects:
+                                   @"电脑",
+                                   @"显示器",
+                                   @"你好",
+                                   @"推特",
+                                   @"乔布斯",
+                                   @"再见",
+                                   @"暑假作业",
+                                   @"键盘",
+                                   @"鼠标",
+                                   @"谷歌",
+                                   @"苹果",nil];
+    
+    NSLog(@"尚未排序的NSString数组:");
+    for(int i=0;i<[stringsToSort count];i++){
+        NSLog(@"%@",[stringsToSort objectAtIndex:i]);
+    }
+    
+    NSMutableArray *chineseStringsArray=[NSMutableArray array];
+    for(int i=0;i<[stringsToSort count];i++){
+        ChineseString *chineseString=[[ChineseString alloc]init];
+        
+        chineseString.string=[NSString stringWithString:[stringsToSort objectAtIndex:i]];
+        
+        if(chineseString.string==nil){
+            chineseString.string=@"";
+        }
+        
+        if(![chineseString.string isEqualToString:@""]){
+            NSString *pinYinResult=[NSString string];
+            for(int j=0;j<chineseString.string.length;j++){
+                NSString *singlePinyinLetter=[[NSString stringWithFormat:@"%c",pinyinFirstLetter([chineseString.string characterAtIndex:j])]uppercaseString];
+                
+                pinYinResult=[pinYinResult stringByAppendingString:singlePinyinLetter];
+            }
+            chineseString.pinYin=pinYinResult;
+        }else{
+            chineseString.pinYin=@"";
+        }
+        [chineseStringsArray addObject:chineseString];
+    }
+    
+    NSLog(@"\n\n\n转换为拼音首字母后的NSString数组");
+    for(int i=0;i<[chineseStringsArray count];i++){
+        ChineseString *chineseString=[chineseStringsArray objectAtIndex:i];
+        NSLog(@"原String:%@----拼音首字母String:%@",chineseString.string,chineseString.pinYin);
+    }
+    
+    NSArray *sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"pinYin" ascending:YES]];
+    [chineseStringsArray sortUsingDescriptors:sortDescriptors];
+    
+    NSLog(@"\n\n\n按照拼音首字母后的NSString数组");
+    for(int i=0;i<[chineseStringsArray count];i++){
+        ChineseString *chineseString=[chineseStringsArray objectAtIndex:i];
+        NSLog(@"原String:%@----拼音首字母String:%@",chineseString.string,chineseString.pinYin);
+    }
+    
+    NSMutableArray *result=[NSMutableArray array];
+    for(int i=0;i<[chineseStringsArray count];i++){
+        [result addObject:((ChineseString*)[chineseStringsArray objectAtIndex:i]).string];
+    }
+    
+    NSLog(@"\n\n\n最终结果:");
+    for(int i=0;i<[result count];i++){
+        NSLog(@"%@",[result objectAtIndex:i]);
+    }
 }
 
 #pragma mark -

@@ -18,7 +18,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     MainViewController *vc = [[MainViewController alloc] init];
     FnozNaviViewController *nav = [[FnozNaviViewController alloc] initWithRootViewController:vc];
     [self.window setRootViewController:nav];
